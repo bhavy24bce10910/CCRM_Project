@@ -1,0 +1,174 @@
+
+# CCRM Project Submission Guide - Step by Step
+
+## Step 1: Create Project Folder Structure
+
+### Windows Command Prompt:
+```cmd
+mkdir CCRM_Project
+cd CCRM_Project
+
+REM Create source package structure
+mkdir src\edu\ccrm\cli
+mkdir src\edu\ccrm\domain  
+mkdir src\edu\ccrm\service
+mkdir src\edu\ccrm\io
+mkdir src\edu\ccrm\util
+mkdir src\edu\ccrm\config
+mkdir src\edu\ccrm\exception
+
+REM Create additional folders
+mkdir screenshots
+mkdir test-data
+mkdir bin
+```
+
+### Linux/Mac Terminal:
+```bash
+mkdir -p CCRM_Project
+cd CCRM_Project
+
+# Create source package structure
+mkdir -p src/edu/ccrm/{cli,domain,service,io,util,config,exception}
+
+# Create additional folders
+mkdir -p screenshots test-data bin
+```
+
+## Step 2: Copy Files to Correct Locations
+
+### Place the provided files as follows:
+- Main.java → Root directory (CCRM_Project/)
+- README.md → Root directory (CCRM_Project/)
+- compile.bat → Root directory (CCRM_Project/)
+- Rename gitignore.txt to .gitignore → Root directory (CCRM_Project/)
+- students-sample.csv → test-data/ folder
+- courses-sample.csv → test-data/ folder  
+- enrollments-sample.csv → test-data/ folder
+
+## Step 3: Initialize Git Repository
+
+```bash
+cd CCRM_Project
+git init
+git add .
+git commit -m "Initial commit - CCRM Project structure"
+```
+
+## Step 4: Create GitHub Repository
+
+1. Go to GitHub.com
+2. Click "New repository"
+3. Repository name: "CCRM_Project"
+4. Description: "Campus Course & Records Manager - Java Programming Project"
+5. Choose Public or Private
+6. Don't initialize with README (you already have one)
+7. Create repository
+
+## Step 5: Push to GitHub
+
+```bash
+# Add GitHub remote (replace YOUR_USERNAME with your GitHub username)
+git remote add origin https://github.com/YOUR_USERNAME/CCRM_Project.git
+
+# Push to GitHub
+git branch -M main
+git push -u origin main
+```
+
+## Step 6: Implement All Java Classes
+
+You need to create these Java files in their respective packages:
+
+### Domain Package (src/edu/ccrm/domain/):
+- Person.java (abstract class)
+- Student.java (extends Person)
+- Instructor.java (extends Person)
+- Course.java (with Builder pattern)
+- Enrollment.java
+- Grade.java (enum: S, A, B, C, D, F)
+- Semester.java (enum: SPRING, SUMMER, FALL)
+
+### Service Package (src/edu/ccrm/service/):
+- StudentService.java
+- CourseService.java
+- EnrollmentService.java
+- TranscriptService.java
+
+### CLI Package (src/edu/ccrm/cli/):
+- MainMenu.java
+- InputHandler.java
+
+### I/O Package (src/edu/ccrm/io/):
+- ImportExportService.java
+- BackupService.java
+- CSVParser.java
+
+### Utility Package (src/edu/ccrm/util/):
+- ValidationUtil.java
+- ComparatorUtil.java
+- RecursionUtil.java
+
+### Config Package (src/edu/ccrm/config/):
+- AppConfig.java (Singleton pattern)
+
+### Exception Package (src/edu/ccrm/exception/):
+- DuplicateEnrollmentException.java
+- MaxCreditLimitExceededException.java
+
+## Step 7: Take Required Screenshots
+
+Place these in screenshots/ folder:
+1. java_installation.png - Screenshot of 'java -version' command
+2. eclipse_setup.png - Eclipse project setup
+3. program_execution.png - Application running
+4. backup_structure.png - Generated backup folders
+
+## Step 8: Test Your Application
+
+```bash
+# Compile using batch file (Windows)
+compile.bat
+
+# Or compile manually
+javac -d bin -cp src src/Main.java src/edu/ccrm/**/*.java
+
+# Run with assertions
+java -ea -cp bin Main
+```
+
+## Step 9: Final Git Commit and Push
+
+```bash
+git add .
+git commit -m "Complete CCRM implementation with all features"
+git push origin main
+```
+
+## Step 10: Submit Repository Link
+
+Submit ONLY the GitHub repository URL:
+https://github.com/YOUR_USERNAME/CCRM_Project
+
+## Important Reminders:
+
+✅ All Java files must compile without errors
+✅ Main class must run successfully  
+✅ README.md must contain all 10 required sections
+✅ Screenshots must show actual program execution
+✅ Test data CSV files must be functional
+✅ Git repository must be accessible
+✅ Submit repository link, NOT zip files
+
+## Final Checklist Before Submission:
+
+- [ ] Project compiles successfully
+- [ ] Main.java runs without errors
+- [ ] All menu options work
+- [ ] Import/Export functions work with test data
+- [ ] Backup functionality creates timestamped folders
+- [ ] README.md is complete with all sections
+- [ ] Screenshots folder has 4 required images
+- [ ] Test-data folder has 3 CSV files
+- [ ] Git repository is pushed to GitHub
+- [ ] Repository link is accessible
